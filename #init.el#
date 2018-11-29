@@ -27,7 +27,7 @@
 (exec-path-from-shell-initialize)
 (company-mode 1)
 (require 'ycmd)
-(set-variable 'ycmd-server-command '("python3" "./ycmd/"))
+(set-variable 'ycmd-server-command '("python3" "./ycmd/ycmd"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (company-mode 1)
 (global-flycheck-mode)

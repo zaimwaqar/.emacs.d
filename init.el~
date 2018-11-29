@@ -14,7 +14,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (0blayout which-key ergoemacs-mode org-bullets counsel powerline evil-mc flycheck exec-path-from-shell company-ycmd jedi ein slime auctex evil-tutor ox-reveal ox-ioslide makey f s el-get w3m evil goto-chg quelpa))))
+    (magit 0blayout which-key ergoemacs-mode org-bullets counsel powerline evil-mc flycheck exec-path-from-shell company-ycmd jedi ein slime auctex evil-tutor ox-reveal ox-ioslide makey f s el-get w3m evil goto-chg quelpa))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,7 +29,7 @@
 (exec-path-from-shell-initialize)
 (company-mode 1)
 (require 'ycmd)
-(set-variable 'ycmd-server-command '("python3" "/Users/Nidawaqar/ycmd/ycmd/"))
+(set-variable 'ycmd-server-command '("python3" "./ycmd/"))
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (company-mode 1)
 (global-flycheck-mode)
@@ -38,6 +38,9 @@
 (require 'company-ycmd)
 (company-ycmd-setup)
 (require 'ycmd-eldoc)
+(require 'which-key)
+(which-key-mode 1)
+(setq inhibit-compacting-font-caches t)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (ivy-mode 1)
@@ -76,5 +79,8 @@
  (require 'w3m-search)                                    
  (setq w3m-search-default-engine "duckduckgo")            
  (add-to-list 'w3m-search-engine-alist                    
- '("duckduckgo" "http://www.duckduckgo.com/lite/?q=%s"))))
-(global-linum-mode 1)
+	      '("duckduckgo" "http://www.duckduckgo.com/lite/?q=%s"))))
+ (global-linum-mode 1)
+(if (eq system-type 'darwin)
+(global-set-key (kbd "s-SPC") 'xah-fly-command-mode-activate)
+)

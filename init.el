@@ -78,5 +78,8 @@
  (require 'w3m-search)                                    
  (setq w3m-search-default-engine "duckduckgo")            
  (add-to-list 'w3m-search-engine-alist                    
- '("duckduckgo" "http://www.duckduckgo.com/lite/?q=%s"))))
-(global-linum-mode 1)
+	      '("duckduckgo" "http://www.duckduckgo.com/lite/?q=%s"))))
+ (global-linum-mode 1)
+(if (eq system-type 'darwin)
+(global-set-key (kbd "s-SPC") 'xah-fly-command-mode-activate)
+)
